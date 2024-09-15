@@ -7,12 +7,16 @@ interface KeyType {
   span?: 'row' | 'col';
 }
 
-const Numpad: React.FC = () => {
+interface NumpadProps {
+  onNumClick: (num: string) => void;
+}
+
+const Numpad: React.FC<NumpadProps> = ({ onNumClick }) => {
   const [display, setDisplay] = useState('');
 
   const handleClick = (value: string) => {
-    // Implement the logic for each button press
     console.log(value + " pressed");
+    onNumClick(value);
   };
 
   const keys: KeyType[][] = [
